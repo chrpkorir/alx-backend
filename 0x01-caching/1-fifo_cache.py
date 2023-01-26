@@ -5,7 +5,6 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class FIFOCache(BaseCaching):
     """ FIFO caching module"""
-
     def __int__(self):
         """ Init file"""
         super().__init__()
@@ -15,7 +14,7 @@ class FIFOCache(BaseCaching):
         """ Assign item key value to the dictionary"""
         if key is None or item is None:
             return
-        if len(self.cache_data) == self.MAX_ITEMS:
+        if len(self.keys) >= self.MAX_ITEMS:
             """ """
             if key not in self.keys:
                 print("DISCARD: {}".format(self.keys[0]))
